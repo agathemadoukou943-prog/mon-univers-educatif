@@ -1,150 +1,542 @@
-
 <!DOCTYPE html>
 <html lang="fr">
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Épreuves du Lycée | Mon Univers éducatif</title>
+
+  <meta name="description"
+        content="Mon Univers éducatif : cours, épreuves et ressources gratuites pour les élèves.">
+
+  <title>Mon Univers éducatif | Apprendre et réussir</title>
+
   <style>
+    :root {
+      --violet: #6c3ce8;
+      --violet-dark: #4820b0;
+      --orange: #ff8a42;
+      --yellow: #ffcf58;
+      --green: #13a879;
+      --ink: #24213a;
+      --muted: #68677a;
+      --background: #f7f6ff;
+      --white: #ffffff;
+    }
+
     * {
       box-sizing: border-box;
+    }
+
+    html {
+      scroll-behavior: smooth;
     }
 
     body {
       margin: 0;
       font-family: Arial, sans-serif;
-      background: #f2f5fa;
-      color: #202b3c;
-    }
-
-    header {
-      background: #12366b;
-      color: white;
-      text-align: center;
-      padding: 28px 15px;
-    }
-
-    header h1 {
-      margin: 0 0 10px;
-    }
-
-    nav {
-      background: #0b2447;
-      padding: 12px;
-      text-align: center;
-    }
-
-    nav a {
-      color: white;
-      text-decoration: none;
-      font-weight: bold;
-    }
-
-    main {
-      max-width: 850px;
-      margin: 25px auto;
-      padding: 0 15px;
-    }
-
-    .intro {
-      text-align: center;
+      background: var(--background);
+      color: var(--ink);
       line-height: 1.6;
     }
 
-    .epreuve {
-      background: white;
-      padding: 20px;
-      margin: 16px 0;
-      border-radius: 12px;
-      box-shadow: 0 3px 12px #00000010;
-    }
-
-    .epreuve h2 {
-      margin-top: 0;
-      color: #12366b;
-    }
-
-    .bouton {
-      display: inline-block;
-      background: #087f5b;
-      color: white;
-      padding: 12px 16px;
-      border-radius: 7px;
+    a {
       text-decoration: none;
+    }
+
+    .container {
+      width: min(1100px, 92%);
+      margin: auto;
+    }
+
+    header {
+      background: var(--white);
+      box-shadow: 0 2px 12px #24105012;
+      position: relative;
+      z-index: 2;
+    }
+
+    .navbar {
+      min-height: 76px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      gap: 16px;
+      flex-wrap: wrap;
+      padding-top: 12px;
+      padding-bottom: 12px;
+    }
+
+    .logo {
+      color: var(--violet);
+      font-size: 19px;
+      font-weight: 800;
+    }
+
+    nav {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 17px;
+    }
+
+    nav a {
+      color: var(--ink);
+      font-weight: 700;
+      font-size: 14px;
+    }
+
+    nav a:hover {
+      color: var(--violet);
+    }
+
+    .hero {
+      color: white;
+      background: linear-gradient(135deg, #6c3ce8, #9a45dc);
+      padding: 62px 0;
+      overflow: hidden;
+    }
+
+    .hero-grid {
+      display: grid;
+      grid-template-columns: 1.3fr 0.7fr;
+      align-items: center;
+      gap: 25px;
+    }
+
+    .eyebrow {
+      display: inline-block;
+      background: #ffffff25;
+      padding: 7px 13px;
+      border-radius: 30px;
+      font-size: 12px;
+      font-weight: bold;
+      letter-spacing: 1px;
+    }
+
+    .hero h1 {
+      font-size: clamp(34px, 7vw, 55px);
+      line-height: 1.1;
+      margin: 18px 0;
+    }
+
+    .hero p {
+      color: #f1eaff;
+      font-size: 17px;
+      max-width: 550px;
+    }
+
+    .actions {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 12px;
+      margin-top: 25px;
+    }
+
+    .btn {
+      display: inline-block;
+      padding: 12px 18px;
+      border-radius: 10px;
+      font-weight: bold;
+      text-align: center;
+      transition: transform 0.2s;
+    }
+
+    .btn:hover {
+      transform: translateY(-2px);
+    }
+
+    .btn-yellow {
+      background: var(--yellow);
+      color: #39215a;
+    }
+
+    .btn-white {
+      background: white;
+      color: var(--violet);
+    }
+
+    .hero-art {
+      background: #ffffff20;
+      border: 1px solid #ffffff40;
+      border-radius: 28px;
+      padding: 25px;
+      text-align: center;
+      transform: rotate(2deg);
+    }
+
+    .hero-art .emoji {
+      font-size: 76px;
+    }
+
+    .hero-art h2 {
+      margin: 8px 0;
+      font-size: 23px;
+    }
+
+    .hero-art p {
+      margin: 0;
+      font-size: 14px;
+    }
+
+    section.content {
+      padding: 48px 0;
+    }
+
+    .section-title {
+      text-align: center;
+      margin-bottom: 28px;
+    }
+
+    .section-title h2 {
+      font-size: 30px;
+      margin: 0 0 8px;
+    }
+
+    .section-title p {
+      color: var(--muted);
+      margin: 0;
+    }
+
+    .cards {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 20px;
+    }
+
+    .card {
+      background: white;
+      border-radius: 18px;
+      padding: 24px;
+      box-shadow: 0 5px 22px #2b18500b;
+      border: 1px solid #ece8fa;
+    }
+
+    .card-icon {
+      width: 58px;
+      height: 58px;
+      display: grid;
+      place-items: center;
+      border-radius: 16px;
+      font-size: 29px;
+      margin-bottom: 15px;
+    }
+
+    .purple {
+      background: #eee7ff;
+    }
+
+    .orange {
+      background: #fff0e2;
+    }
+
+    .green {
+      background: #ddf8ed;
+    }
+
+    .yellow {
+      background: #fff6d8;
+    }
+
+    .card h3 {
+      margin: 0 0 8px;
+      font-size: 21px;
+    }
+
+    .card p {
+      color: var(--muted);
+      margin-top: 0;
+    }
+
+    .course-list {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px;
+      margin: 16px 0;
+    }
+
+    .tag {
+      background: #f0edff;
+      color: #542ac3;
+      padding: 7px 11px;
+      border-radius: 30px;
+      font-size: 13px;
       font-weight: bold;
     }
 
-    .bouton:hover {
-      background: #066548;
+    .btn-purple {
+      background: var(--violet);
+      color: white;
+    }
+
+    .btn-green {
+      background: var(--green);
+      color: white;
+    }
+
+    .pdf-list {
+      display: grid;
+      gap: 12px;
+    }
+
+    .pdf-item {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 12px;
+      flex-wrap: wrap;
+      padding: 15px;
+      background: #faf9ff;
+      border-radius: 12px;
+      border: 1px solid #eee9fa;
+    }
+
+    .pdf-name {
+      font-weight: bold;
+    }
+
+    .pdf-note {
+      display: block;
+      color: var(--muted);
+      font-size: 13px;
+      font-weight: normal;
+    }
+
+    .download {
+      color: var(--violet);
+      font-weight: bold;
+    }
+
+    .welcome {
+      background: #fff1d9;
+      border-radius: 18px;
+      padding: 26px;
+      text-align: center;
+    }
+
+    .welcome h2 {
+      margin-top: 0;
     }
 
     footer {
-      background: #0b2447;
+      background: #292044;
       color: white;
       text-align: center;
-      padding: 20px;
-      margin-top: 35px;
+      padding: 27px 12px;
+    }
+
+    footer p {
+      margin: 5px 0;
+      color: #e2dcef;
+    }
+
+    @media (max-width: 650px) {
+      .hero {
+        padding: 42px 0;
+      }
+
+      .hero-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .hero-art {
+        transform: none;
+      }
+
+      .cards {
+        grid-template-columns: 1fr;
+      }
+
+      .navbar {
+        justify-content: center;
+      }
+
+      nav {
+        justify-content: center;
+        gap: 13px;
+      }
+
+      .section-title h2 {
+        font-size: 26px;
+      }
     }
   </style>
 </head>
 
 <body>
+
   <header>
-    <h1>Mon Univers éducatif</h1>
-    <p>Apprendre, réviser et réussir !</p>
+    <div class="container navbar">
+      <a class="logo" href="#accueil">
+        🎓 Mon Univers éducatif
+      </a>
+
+      <nav aria-label="Navigation principale">
+        <a href="#accueil">Accueil</a>
+        <a href="#epreuves">Épreuves</a>
+        <a href="#cours">Cours</a>
+      </nav>
+    </div>
   </header>
 
-  <nav>
-    <a href="#epreuves">Épreuves du Lycée</a>
-  </nav>
-
   <main>
-    <section class="intro">
-      <h2>Épreuves du Lycée</h2>
-      <p>
-        Retrouve ici des sujets d'entraînement pour réviser
-        et préparer tes examens. Les documents sont gratuits.
-      </p>
+    <section class="hero" id="accueil">
+      <div class="container hero-grid">
+        <div>
+          <span class="eyebrow">TON ESPACE POUR APPRENDRE</span>
+
+          <h1>Ton avenir commence ici !</h1>
+
+          <p>
+            Bienvenue sur Mon Univers éducatif.
+            Découvre des épreuves, révise tes matières
+            et avance chaque jour vers la réussite.
+          </p>
+
+          <div class="actions">
+            <a class="btn btn-yellow" href="#cours">
+              Découvrir les cours
+            </a>
+
+            <a class="btn btn-white" href="#epreuves">
+              Voir les épreuves
+            </a>
+          </div>
+        </div>
+
+        <div class="hero-art">
+          <div class="emoji">📚 ✨</div>
+          <h2>Apprendre autrement</h2>
+          <p>Un pas de plus vers tes objectifs !</p>
+        </div>
+      </div>
     </section>
 
-    <section id="epreuves">
-      <article class="epreuve">
-        <h2>📘 Mathématiques</h2>
-        <p>Équations, fonctions et géométrie.</p>
-        <a class="bouton"
-           href="./epreuve_mathematiques_lycee.pdf"
-           download>Télécharger le PDF</a>
-      </article>
+    <section class="content" id="cours">
+      <div class="container">
+        <div class="section-title">
+          <h2>Explore nos cours 📖</h2>
+          <p>Choisis une matière et commence tes révisions.</p>
+        </div>
 
-      <article class="epreuve">
-        <h2>📗 Français</h2>
-        <p>Compréhension, grammaire et rédaction.</p>
-        <a class="bouton"
-           href="./epreuve_francais_lycee.pdf"
-           download>Télécharger le PDF</a>
-      </article>
+        <div class="cards">
+          <article class="card">
+            <div class="card-icon purple">➗</div>
+            <h3>Mathématiques</h3>
+            <p>Entraîne-toi aux calculs, aux fonctions
+              et aux exercices de géométrie.</p>
+            <a class="btn btn-purple" href="#epreuves">
+              Voir les exercices
+            </a>
+          </article>
 
-      <article class="epreuve">
-        <h2>⚗️ Physique-chimie</h2>
-        <p>Électricité, mouvement et chimie.</p>
-        <a class="bouton"
-           href="./epreuve_physique_chimie_lycee.pdf"
-           download>Télécharger le PDF</a>
-      </article>
+          <article class="card">
+            <div class="card-icon orange">📝</div>
+            <h3>Français</h3>
+            <p>Améliore ta grammaire, ta compréhension
+              et ton expression écrite.</p>
+            <a class="btn btn-purple" href="#epreuves">
+              Voir les exercices
+            </a>
+          </article>
 
-      <article class="epreuve">
-        <h2>📙 Anglais</h2>
-        <p>Compréhension, grammaire et expression écrite.</p>
-        <a class="bouton"
-           href="./epreuve_anglais_lycee.pdf"
-           download>Download PDF</a>
-      </article>
+          <article class="card">
+            <div class="card-icon green">⚗️</div>
+            <h3>Physique-chimie</h3>
+            <p>Révise les notions scientifiques
+              et entraîne-toi aux problèmes.</p>
+            <a class="btn btn-purple" href="#epreuves">
+              Voir les exercices
+            </a>
+          </article>
+
+          <article class="card">
+            <div class="card-icon yellow">🌍</div>
+            <h3>Anglais</h3>
+            <p>Travaille la lecture, le vocabulaire,
+              la grammaire et la rédaction.</p>
+            <a class="btn btn-purple" href="#epreuves">
+              Voir les exercices
+            </a>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section class="content" id="epreuves">
+      <div class="container">
+        <div class="section-title">
+          <h2>Épreuves du Lycée 📂</h2>
+          <p>Télécharge nos sujets d'entraînement gratuits.</p>
+        </div>
+
+        <div class="card">
+          <div class="pdf-list">
+
+            <div class="pdf-item">
+              <div class="pdf-name">
+                📘 Épreuve de mathématiques
+                <span class="pdf-note">PDF • Sujet d'entraînement</span>
+              </div>
+              <a class="download"
+                 href="./epreuve_mathematiques_lycee.pdf"
+                 download>Télécharger ↓</a>
+            </div>
+
+            <div class="pdf-item">
+              <div class="pdf-name">
+                📗 Épreuve de français
+                <span class="pdf-note">PDF • Sujet d'entraînement</span>
+              </div>
+              <a class="download"
+                 href="./epreuve_francais_lycee.pdf"
+                 download>Télécharger ↓</a>
+            </div>
+
+            <div class="pdf-item">
+              <div class="pdf-name">
+                ⚗️ Épreuve de physique-chimie
+                <span class="pdf-note">PDF • Sujet d'entraînement</span>
+              </div>
+              <a class="download"
+                 href="./epreuve_physique_chimie_lycee.pdf"
+                 download>Télécharger ↓</a>
+            </div>
+
+            <div class="pdf-item">
+              <div class="pdf-name">
+                📙 Épreuve d'anglais
+                <span class="pdf-note">PDF • Practice paper</span>
+              </div>
+              <a class="download"
+                 href="./epreuve_anglais_lycee.pdf"
+                 download>Télécharger ↓</a>
+            </div>
+
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="content">
+      <div class="container">
+        <div class="welcome">
+          <h2>🌟 Chaque jour est une occasion d'apprendre !</h2>
+          <p>
+            Travaille avec régularité, garde confiance
+            et continue à poursuivre tes rêves.
+          </p>
+          <a class="btn btn-purple" href="#accueil">
+            Retour à l'accueil ↑
+          </a>
+        </div>
+      </div>
     </section>
   </main>
 
   <footer>
-    <p>© Mon Univers éducatif — Apprendre chaque jour.</p>
+    <strong>🎓 Mon Univers éducatif</strong>
+    <p>Apprendre • Progresser • Réussir</p>
+    <p>© 2026 — Ressources éducatives pour tous.</p>
   </footer>
+
 </body>
-    </html>
-    
+  </html>
+  
