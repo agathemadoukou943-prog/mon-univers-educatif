@@ -1,333 +1,156 @@
-
 <!DOCTYPE html>
 <html lang="fr">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta name="theme-color" content="#5b3df5">
-  <meta name="description" content="Mon Univers éducatif : cours et épreuves pour apprendre et réussir.">
-  <title>Mon Univers éducatif</title>
-
-  <style>
-    * {
-      box-sizing: border-box;
-      margin: 0;
-      padding: 0;
-    }
-
-    html {
-      scroll-behavior: smooth;
-    }
-
-    body {
-      font-family: Arial, sans-serif;
-      background: #f4f6ff;
-      color: #222747;
-      line-height: 1.6;
-    }
-
-    header {
-      background: linear-gradient(135deg, #5b3df5, #08b9c7);
-      color: white;
-      padding: 25px 16px 35px;
-      text-align: center;
-    }
-
-    header h1 {
-      font-size: 29px;
-      margin-bottom: 8px;
-    }
-
-    header p {
-      font-size: 15px;
-    }
-
-    nav {
-      background: white;
-      padding: 14px 8px;
-      display: flex;
-      justify-content: center;
-      gap: 22px;
-      flex-wrap: wrap;
-      box-shadow: 0 3px 12px #00000010;
-      position: sticky;
-      top: 0;
-      z-index: 10;
-    }
-
-    nav a {
-      text-decoration: none;
-      color: #5136d9;
-      font-weight: bold;
-    }
-
-    nav a:hover {
-      color: #08a9b6;
-    }
-
-    .hero {
-      margin: 22px auto;
-      padding: 30px 20px;
-      max-width: 1000px;
-      width: 92%;
-      border-radius: 20px;
-      color: white;
-      background: linear-gradient(135deg, #ff7a59, #ffbd59);
-      text-align: center;
-    }
-
-    .hero h2 {
-      font-size: 25px;
-      margin-bottom: 10px;
-    }
-
-    .hero a {
-      display: inline-block;
-      margin-top: 16px;
-      padding: 12px 20px;
-      border-radius: 25px;
-      background: white;
-      color: #e45b36;
-      text-decoration: none;
-      font-weight: bold;
-    }
-
-    section {
-      max-width: 1000px;
-      width: 92%;
-      margin: 30px auto;
-    }
-
-    section h2 {
-      color: #5136d9;
-      margin-bottom: 8px;
-      font-size: 24px;
-    }
-
-    .intro {
-      margin-bottom: 20px;
-      color: #555b76;
-    }
-
-    .grid {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
-      gap: 18px;
-      margin-top: 20px;
-    }
-
-    .card {
-      background: white;
-      border-radius: 16px;
-      padding: 20px;
-      box-shadow: 0 5px 18px #282c5010;
-      border-top: 5px solid #6848f5;
-    }
-
-    .card:nth-child(2) {
-      border-top-color: #ff795b;
-    }
-
-    .card:nth-child(3) {
-      border-top-color: #08b9a6;
-    }
-
-    .card:nth-child(4) {
-      border-top-color: #ffbb36;
-    }
-
-    .emoji {
-      font-size: 35px;
-      margin-bottom: 8px;
-    }
-
-    .card h3 {
-      margin-bottom: 8px;
-      font-size: 19px;
-    }
-
-    .card p {
-      color: #626780;
-      font-size: 14px;
-      margin-bottom: 15px;
-    }
-
-    .btn {
-      display: block;
-      text-align: center;
-      padding: 11px;
-      border-radius: 9px;
-      text-decoration: none;
-      font-weight: bold;
-      margin-top: 9px;
-      font-size: 14px;
-    }
-
-    .btn-view {
-      background: #ede9ff;
-      color: #5136d9;
-    }
-
-    .btn-download {
-      background: #5136d9;
-      color: white;
-    }
-
-    .btn:hover {
-      opacity: 0.85;
-    }
-
-    .course {
-      background: white;
-      padding: 20px;
-      border-radius: 15px;
-      margin-top: 15px;
-      border-left: 5px solid #08b9c7;
-    }
-
-    .course h3 {
-      color: #5136d9;
-      margin-bottom: 5px;
-    }
-
-    footer {
-      margin-top: 40px;
-      background: #252344;
-      color: white;
-      text-align: center;
-      padding: 25px 15px;
-      font-size: 14px;
-    }
-
-    footer p + p {
-      margin-top: 5px;
-    }
-  </style>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Mon Univers éducatif</title>
+<style>
+*{box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{margin:0;font-family:Arial,sans-serif;background:#f5f8fc;color:#183153}
+header{background:#142b53;color:white;padding:16px 5%;display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:12px}
+.logo{font-size:19px;font-weight:bold}
+nav{display:flex;gap:15px;flex-wrap:wrap}
+nav a{color:white;text-decoration:none;font-size:14px}
+.hero{margin:20px auto;width:92%;background:#fff;border:1px solid #dbe5f0;border-radius:18px;overflow:hidden;display:grid;grid-template-columns:1fr 1fr;align-items:center}
+.intro{padding:25px}
+.tag{color:#087f8c;font-size:12px;font-weight:bold;letter-spacing:1px}
+h1{font-size:clamp(28px,5vw,42px);line-height:1.15;margin:14px 0}
+p{line-height:1.6}
+.hero-art{background:#e8f5f5;padding:20px;text-align:center;min-height:230px;display:flex;align-items:center;justify-content:center}
+.hero-art svg{width:100%;max-width:320px;height:auto}
+.btn{display:inline-block;background:#087f8c;color:white;text-decoration:none;padding:11px 14px;border-radius:8px;font-weight:bold;margin:4px 3px 4px 0;font-size:14px}
+.download{background:#f5b52e;color:#183153}
+section.content{width:92%;margin:32px auto}
+h2{font-size:26px}
+.cards{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:16px}
+.card{background:white;border:1px solid #dce5ef;border-radius:14px;overflow:hidden}
+.card img{width:100%;height:150px;object-fit:cover;background:#e6edf5;display:block}
+.photo-placeholder{height:150px;display:flex;align-items:center;justify-content:center;background:#e6f4f4;font-size:48px}
+.card-body{padding:14px}
+.card h3{margin:0 0 8px}
+.card p{font-size:14px;color:#52647a}
+.courses{background:#e0f4eb;padding:24px;border-radius:14px}
+footer{background:#142b53;color:white;text-align:center;padding:20px;font-size:13px}
+@media(max-width:600px){
+ .hero{grid-template-columns:1fr}
+ .hero-art{min-height:190px}
+ .cards{grid-template-columns:1fr}
+ nav{gap:10px}
+}
+</style>
 </head>
-
 <body>
 
-  <header id="accueil">
-    <h1>📚 Mon Univers éducatif</h1>
-    <p>Apprendre, s'entraîner et réussir ensemble !</p>
-  </header>
-
+<header>
+  <div class="logo">🎓 Mon Univers éducatif</div>
   <nav>
-    <a href="#accueil">🏠 Accueil</a>
-    <a href="#epreuves">📝 Épreuves</a>
-    <a href="#cours">📖 Cours</a>
+    <a href="#accueil">Accueil</a>
+    <a href="#epreuves">Épreuves</a>
+    <a href="#cours">Cours</a>
   </nav>
+</header>
 
-  <div class="hero">
-    <h2>Bienvenue dans ton espace éducatif !</h2>
-    <p>Retrouve des épreuves pour t'entraîner et progresser à ton rythme.</p>
-    <a href="#epreuves">Découvrir les épreuves</a>
+<main>
+<section class="hero" id="accueil">
+  <div class="intro">
+    <span class="tag">APPRENDRE • RÉVISER • RÉUSSIR</span>
+    <h1>Bienvenue dans ton univers !</h1>
+    <p>Découvre tes épreuves, révise tes cours et prépare ton avenir avec Mon Univers éducatif.</p>
+    <a class="btn" href="#epreuves">Découvrir les épreuves ↓</a>
   </div>
 
-  <section id="epreuves">
-    <h2>📝 Nos épreuves</h2>
-    <p class="intro">
-      Choisis une matière. Lis le sujet en ligne ou télécharge le PDF
-      sur ton téléphone pour le consulter plus tard.
-    </p>
+  <div class="hero-art">
+    <svg viewBox="0 0 320 240" role="img" aria-label="Illustration scientifique avec molécules, éprouvettes et formule H2O">
+      <g fill="none" stroke="#087f8c" stroke-width="3">
+        <path d="M35 35 L70 55 L70 95"/>
+        <path d="M235 35 L270 55 L270 95"/>
+        <path d="M125 145 L160 125 L195 145 L195 185"/>
+        <path d="M70 95 L105 115 L125 145"/>
+        <path d="M195 185 L230 205"/>
+      </g>
+      <g fill="#f5b52e" stroke="#142b53" stroke-width="2">
+        <circle cx="35" cy="35" r="13"/><circle cx="70" cy="55" r="10"/>
+        <circle cx="70" cy="95" r="12"/><circle cx="235" cy="35" r="13"/>
+        <circle cx="270" cy="55" r="10"/><circle cx="270" cy="95" r="12"/>
+        <circle cx="125" cy="145" r="10"/><circle cx="160" cy="125" r="13"/>
+        <circle cx="195" cy="145" r="10"/><circle cx="195" cy="185" r="12"/>
+        <circle cx="230" cy="205" r="9"/>
+      </g>
+      <g fill="#142b53" font-family="Arial" font-weight="bold" text-anchor="middle">
+        <text x="160" y="40" font-size="28">H₂O</text>
+        <text x="160" y="75" font-size="13">SCIENCES</text>
+      </g>
+      <g stroke="#087f8c" stroke-width="3" fill="#bce9e6">
+        <path d="M105 170 L105 200 Q105 215 120 215 L135 215 Q150 215 150 200 L150 170"/>
+        <path d="M105 195 Q127 185 150 195"/>
+        <path d="M175 170 L175 200 Q175 215 190 215 L205 215 Q220 215 220 200 L220 170"/>
+        <path d="M175 195 Q197 185 220 195"/>
+      </g>
+      <g stroke="#142b53" stroke-width="3">
+        <path d="M100 165 L155 165 M170 165 L225 165"/>
+      </g>
+    </svg>
+  </div>
+</section>
 
-    <div class="grid">
+<section class="content" id="epreuves">
+  <h2>📚 Nos épreuves</h2>
+  <p>Choisis une matière pour consulter le sujet ou le télécharger.</p>
 
-      <article class="card">
-        <div class="emoji">🔢</div>
+  <div class="cards">
+    <article class="card">
+      <div class="photo-placeholder">📐</div>
+      <div class="card-body">
         <h3>Mathématiques</h3>
-        <p>Entraîne-toi avec des exercices de mathématiques.</p>
-        <a class="btn btn-view"
-           href="epreuve_mathematiques_lycee.pdf"
-           target="_blank" rel="noopener">
-          👁️ Voir l'épreuve
-        </a>
-        <a class="btn btn-download"
-           href="epreuve_mathematiques_lycee.pdf"
-           download="epreuve_mathematiques_lycee.pdf">
-          ⬇️ Télécharger le PDF
-        </a>
-      </article>
+        <p>Entraîne-toi avec les épreuves.</p>
+        <a class="btn" href="maths.pdf" target="_blank">Voir le PDF</a>
+        <a class="btn download" href="maths.pdf" download>Télécharger</a>
+      </div>
+    </article>
 
-      <article class="card">
-        <div class="emoji">✍️</div>
+    <article class="card">
+      <div class="photo-placeholder">📝</div>
+      <div class="card-body">
         <h3>Français</h3>
-        <p>Améliore ta compréhension et ton expression écrite.</p>
-        <a class="btn btn-view"
-           href="epreuve_francais_lycee.pdf"
-           target="_blank" rel="noopener">
-          👁️ Voir l'épreuve
-        </a>
-        <a class="btn btn-download"
-           href="epreuve_francais_lycee.pdf"
-           download="epreuve_francais_lycee.pdf">
-          ⬇️ Télécharger le PDF
-        </a>
-      </article>
+        <p>Lis et révise tes sujets.</p>
+        <a class="btn" href="francais.pdf" target="_blank">Voir le PDF</a>
+        <a class="btn download" href="francais.pdf" download>Télécharger</a>
+      </div>
+    </article>
 
-      <article class="card">
-        <div class="emoji">⚗️</div>
+    <article class="card">
+      <div class="photo-placeholder">🧪</div>
+      <div class="card-body">
         <h3>Physique-Chimie</h3>
-        <p>Révise les sciences et teste tes connaissances.</p>
-        <a class="btn btn-view"
-           href="epreuve_physique_chimie_lycee.pdf"
-           target="_blank" rel="noopener">
-          👁️ Voir l'épreuve
-        </a>
-        <a class="btn btn-download"
-           href="epreuve_physique_chimie_lycee.pdf"
-           download="epreuve_physique_chimie_lycee.pdf">
-          ⬇️ Télécharger le PDF
-        </a>
-      </article>
+        <p>Explore les exercices scientifiques.</p>
+        <a class="btn" href="physique.pdf" target="_blank">Voir le PDF</a>
+        <a class="btn download" href="physique.pdf" download>Télécharger</a>
+      </div>
+    </article>
 
-      <article class="card">
-        <div class="emoji">🌍</div>
+    <article class="card">
+      <div class="photo-placeholder">🌍</div>
+      <div class="card-body">
         <h3>Anglais</h3>
-        <p>Pratique ton anglais avec des exercices variés.</p>
-        <a class="btn btn-view"
-           href="epreuve_anglais_lycee.pdf"
-           target="_blank" rel="noopener">
-          👁️ Voir l'épreuve
-        </a>
-        <a class="btn btn-download"
-           href="epreuve_anglais_lycee.pdf"
-           download="epreuve_anglais_lycee.pdf">
-          ⬇️ Télécharger le PDF
-        </a>
-      </article>
+        <p>Améliore ton niveau d'anglais.</p>
+        <a class="btn" href="anglais.pdf" target="_blank">Voir le PDF</a>
+        <a class="btn download" href="anglais.pdf" download>Télécharger</a>
+      </div>
+    </article>
+  </div>
+</section>
 
-    </div>
-  </section>
+<section class="content courses" id="cours">
+  <h2>✏️ Espace cours</h2>
+  <p>Retrouve tes ressources et avance à ton rythme.</p>
+  <a class="btn" href="#epreuves">Commencer à réviser</a>
+</section>
+</main>
 
-  <section id="cours">
-    <h2>📖 Espace cours</h2>
-    <p class="intro">
-      Un espace pour retrouver tes leçons et préparer tes examens.
-    </p>
-
-    <div class="course">
-      <h3>📘 Cours de mathématiques</h3>
-      <p>Les leçons et les exercices seront ajoutés ici.</p>
-    </div>
-
-    <div class="course">
-      <h3>📗 Cours de français</h3>
-      <p>Retrouve ici les futures leçons de français.</p>
-    </div>
-
-    <div class="course">
-      <h3>📙 Cours de sciences et d'anglais</h3>
-      <p>De nouvelles ressources pourront être ajoutées dans cet espace.</p>
-    </div>
-  </section>
-
-  <footer>
-    <p><strong>Mon Univers éducatif</strong></p>
-    <p>Le savoir ouvre les portes de l'avenir 🌟</p>
-    <p>© 2026 — Tous droits réservés.</p>
-  </footer>
-
+<footer>
+  © 2026 Mon Univers éducatif — Apprendre et réussir ensemble.
+</footer>
 </body>
-    </html>
-  
+  </html>
+      
